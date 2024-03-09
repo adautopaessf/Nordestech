@@ -4,5 +4,3 @@
 - fulano [NOME COMPLETO]
 - beltrano [NOME COMPLETO]
 - ciclano [NOME COMPLETO]
-
-#### O GRUPO ESCOLHEU O PROJETO NÚMERO 1
