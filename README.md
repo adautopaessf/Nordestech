@@ -1,7 +1,7 @@
 # projeto-equipe1
 
 # nome do grupo: grupo 1
-- fulano 
+- fulano [NOME COMPLETO]
 - beltrano
 - ciclano
 
