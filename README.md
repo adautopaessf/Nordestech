@@ -20,12 +20,12 @@ Através da funcionalidade de listagem de filmes do IMDb, os usuários têm aces
 
 ![Tela de exemplo de Listagem](/mock/listagem_exemple.png)
 
-Requisito 2:
+Funcionalidades 2:
 
-Requisito 3:
+Funcionalidades 3:
 
-Requisito 4:
+Funcionalidades 4:
 
-Requisito 5: 
+Funcionalidades 5: 
 
 ---------------------------
