@@ -12,7 +12,7 @@
 
 ### FIGMA
 
-- https://www.figma.com/file/foA2Q2nkni9KwjRXUk9RcB/Biblioteca-Virtual---NR?type=design&node-id=0%3A1&mode=design&t=WSHNoFk8ZBw389fj-1
+- https://www.figma.com/file/ksWNyVOgwVDh1AvLXLoisB/Meta-Books---Biblioteca-Virtual?type=design&node-id=0-1&mode=design&t=K5ueKsC6fk4avpj9-0
 
 ### Documento de Requisitos
 
