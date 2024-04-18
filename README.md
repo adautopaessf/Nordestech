@@ -17,6 +17,8 @@ https://www.figma.com/file/ksWNyVOgwVDh1AvLXLoisB/Meta-Books---Biblioteca-Virtua
 #  Funcionalidades
 Funcionalidade 1: Newsletter
 
+![Newsletter](https://prnt.sc/bPwtQPmsH2oF)
+
 Funcionalidade 2: Sistema de Notificações
 
 Funcionalidade 3: Login/Cadastro
