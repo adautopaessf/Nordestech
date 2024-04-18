@@ -1,0 +1,83 @@
+# 1- Como surgiu a arquitetura cebola?
+O termo Onion Architecture foi cunhado por Jeffrey Palermo em 2008. Está baseada no princípio
+da inversão de controle e é composta por várias camadas concêntricas que se interconectam em
+direção ao núcleo, que representa o domínio da aplicação.
+Essa arquitetura surgiu para fornecer uma alternativa robusta para criar aplicativos para uma
+melhor testabilidade, manutenção e confiabilidade nas infraestruturas como bancos de dados e
+serviços. Surgiu com a finalidade de reduzir o forte acoplamento e separar os interesses da
+maioria das arquiteturas tradicionais, fornecendo um modelo confortável de construir
+aplicativos.
+# 2- Surgiu com qual propósito?
+O principal objetivo da arquitetura cebola foi enfrentar os desafios encontrado pela arquitetura
+em camadas tradicional, que era muito usada na época e fornecer uma solução para os
+problemas encontrados nessa arquitetura, como acoplamento desnecessário.
+● Camada tradicional:
+De acordo com a arquitetura tradicional, a camada de interface do usuário interage com a lógica
+de negócios e a lógica de negócios conversa com a camada de dados, e todas as camadas são
+misturadas e dependem muito umas das outras. Com isso, nenhuma camada é independente.
+Sistemas assim são muito difíceis de entender e manter, pois geram muito acoplamento
+desnecessário.
+● Onion Architecture
+A Onion Architecture resolveu esse problema definindo camadas do núcleo até a infraestrutura
+(Baseadas no princípio de inversão de controle). No centro está o modelo de domínio (entidades),
+que representa os objetos de negócios e de comportamento. Ao redor da camada de domínio
+estão outras camadas, com mais comportamentos.
+# 3- Como é o funcionamento da arquitetura?
+1- Camada de Domínio (a camada mais interna)
+A camada de domínio reside na parte central da arquitetura Onion, e representa os objetos de
+negócios e o comportamento. A ideia é ter todos os seus objetos de domínio nesse núcleo. Ele
+contém todos os objetos de domínio do aplicativo. Além dos objetos de domínio, você também
+pode ter interfaces de domínio. Essas entidades de domínio não têm dependências. Objetos de
+domínio também são simples como deveriam ser, sem nenhum código pesado ou dependências.
+(Se um aplicativo for desenvolvido usando um ORM como o Entity Framework, essa camada
+conterá classes POCO.)
+2- Camada de Repositório (Repository Layer)
+Essa camada cria uma abstração entre as entidades do domínio e a lógica de negócios do
+aplicativo. Nesta camada, geralmente adicionamos interfaces que fornecem o comportamento de
+salvar e recuperar objetos, geralmente envolvendo um banco de dados. Essa camada consiste no
+padrão de acesso a dados, que é uma abordagem mais fracamente acoplada ao acesso a dados.
+Também criamos um repositório genérico e adicionamos consultas para recuperar dados da
+fonte, mapear os dados da fonte de dados para uma entidade comercial e persistir alterações na
+entidade comercial na fonte de dados.
+3- Camada de Serviços (Service Layer)
+A camada de serviços mantém interfaces com operações comuns, como Adicionar, Salvar, Editar
+e Excluir. Além disso, essa camada é usada para se comunicar com a camada da interface do
+usuário e a camada do repositório. A camada de serviço também pode conter lógica de negócios
+para uma entidade. Nesta camada, as interfaces de serviço são mantidas separadas de sua
+implementação, tendo em mente o acoplamento e a separação de responsabilidades.
+4- Camada de Interface do Usuário (UI Layer)
+É a camada mais externa e mantém responsabilidades periféricas como interface do usuário e
+testes. Pode ser uma aplicação Web, uma API, um projeto de Testes, etc. Essa camada possui uma
+implementação do padrão da injeção de dependência, para que o aplicativo construa uma
+estrutura fracamente acoplada e possa se comunicar com a camada interna por meio de
+interfaces.
+# 4- Princípios da arquitetura cebola
+1. A aplicação é construída em torno de um sistema de modelo de objeto independente
+2. As camadas internas definem interfaces, camadas externas implementam interfaces
+3. A direção do acoplamento é em direção ao centro
+4. Todo o código principal do aplicativo pode ser compilado e executado separadamente
+da infraestrutura
+# 5- Definições da arquitetura cebola
+- Inversão de Controle (IoC): loC é um princípio fundamental permite delegar o fluxo de controle
+do programa, em termos de acesso a recursos e serviços, à estrutura dependente e não ao
+próprio programa
+- Injeção de Dependência (DI): DI é usado para resolver o problema de dependências e se refere a
+técnicas que resolvem dependências de forma automática por meio da injeção de valores
+- Separação de Camadas: Diferentes camadas do sistema são separadas de forma que cada
+camada tenha suas responsabilidades específicas onde cada camada também tem menos
+dependências de suas camadas externas
+# 6- Vantagens
+● As camadas da Onion Architecture são conectadas através de interfaces. As
+implementações são fornecidas durante o tempo de execução;
+● A arquitetura do aplicativo é construída sobre um modelo de domínio;
+● Toda dependência externa, como acesso ao banco de dados e chamadas de serviço, é
+representada em camadas externas;
+● Não há nenhuma dependência da camada Interna com camadas externas;
+● Os acoplamentos estão voltados para o centro;
+● Arquitetura flexível, sustentável e portátil;
+● Não há necessidade de criar projetos comuns e compartilhados;
+● Pode ser testada rapidamente porque o núcleo do aplicativo não depende de nada;
+# 7- Desvantagens
+● Não é fácil de entender para iniciantes, e tem uma curva de aprendizado. Os arquitetos
+geralmente confundem a divisão de responsabilidades entre as camadas;
+● Utiliza Interfaces em profusão;
