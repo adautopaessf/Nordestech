@@ -5,7 +5,7 @@
 - Eduardo Young Woo Kim
 - Juliano Freitas de Albuquerque Bezerra
 - Letícia Bortnik Machado Dias Vasconcelos
-- Renê
+- Renê César de Barros Júnior
 - Walter Teles Moreira Neto
 
 # API
