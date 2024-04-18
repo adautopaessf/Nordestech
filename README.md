@@ -44,4 +44,5 @@ Funcionalidade 6: Estatísticas de Leitura
 Assim que o usuário entrar na página de estatística no aplicativo, ele verá todos os livros que estão em andamento (contendo a capa do livro e em baixo uma barra com a porcentagem do livro lido) e logo em seguida, terá uma seção de resumo, onde mostrará todos os últimos livros concluídos, com a opção de ver mais detalhes sobre aquele livro (sinopse, autor, quantidade de paginas)
 E terá uma informação contendo a média diária/ mensal de horas lidas no aplicativo.
 
+![Estatística de Leitura](/imgs/estatistica.png)
 ---------------------------
