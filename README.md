@@ -1,19 +1,28 @@
-# <center> Projeto Kotlin </center>
+# Projeto-NORDESTECH
 
-## Nome do Grupo: <b> NORDESTECH </b>
-
-### Integrantes do Grupo:
-
-- Eduardo Young Woo Kim
+# Grupo-8
 - Adauto Paes
+- Eduardo Young Woo Kim
 - Juliano Freitas de Albuquerque Bezerra
 - Letícia Bortnik Machado Dias Vasconcelos
+- Renê
 - Walter Teles Moreira Neto
 
-### FIGMA
+# API
+  Link da API
 
-- https://www.figma.com/file/ksWNyVOgwVDh1AvLXLoisB/Meta-Books---Biblioteca-Virtual?type=design&node-id=0-1&mode=design&t=K5ueKsC6fk4avpj9-0
+# figma
+https://www.figma.com/file/ksWNyVOgwVDh1AvLXLoisB/Meta-Books---Biblioteca-Virtual?type=design&node-id=0-1&mode=design&t=K5ueKsC6fk4avpj9-0
 
-### Documento de Requisitos
+#  Funcionalidades
+Funcionalidade 1: 
 
-- 
+Funcionalidade 2:
+
+Funcionalidade 3:
+
+Funcionalidade 4:
+
+Funcionalidade 5: 
+
+---------------------------
