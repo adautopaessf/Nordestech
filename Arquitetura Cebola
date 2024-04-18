@@ -7,6 +7,7 @@ melhor testabilidade, manutenção e confiabilidade nas infraestruturas como ban
 serviços. Surgiu com a finalidade de reduzir o forte acoplamento e separar os interesses da
 maioria das arquiteturas tradicionais, fornecendo um modelo confortável de construir
 aplicativos.
+
 # 2- Surgiu com qual propósito?
 O principal objetivo da arquitetura cebola foi enfrentar os desafios encontrado pela arquitetura
 em camadas tradicional, que era muito usada na época e fornecer uma solução para os
@@ -22,6 +23,7 @@ A Onion Architecture resolveu esse problema definindo camadas do núcleo até a 
 (Baseadas no princípio de inversão de controle). No centro está o modelo de domínio (entidades),
 que representa os objetos de negócios e de comportamento. Ao redor da camada de domínio
 estão outras camadas, com mais comportamentos.
+
 # 3- Como é o funcionamento da arquitetura?
 1- Camada de Domínio (a camada mais interna)
 A camada de domínio reside na parte central da arquitetura Onion, e representa os objetos de
@@ -51,12 +53,14 @@ testes. Pode ser uma aplicação Web, uma API, um projeto de Testes, etc. Essa c
 implementação do padrão da injeção de dependência, para que o aplicativo construa uma
 estrutura fracamente acoplada e possa se comunicar com a camada interna por meio de
 interfaces.
+
 # 4- Princípios da arquitetura cebola
 1. A aplicação é construída em torno de um sistema de modelo de objeto independente
 2. As camadas internas definem interfaces, camadas externas implementam interfaces
 3. A direção do acoplamento é em direção ao centro
 4. Todo o código principal do aplicativo pode ser compilado e executado separadamente
 da infraestrutura
+
 # 5- Definições da arquitetura cebola
 - Inversão de Controle (IoC): loC é um princípio fundamental permite delegar o fluxo de controle
 do programa, em termos de acesso a recursos e serviços, à estrutura dependente e não ao
@@ -66,6 +70,7 @@ técnicas que resolvem dependências de forma automática por meio da injeção 
 - Separação de Camadas: Diferentes camadas do sistema são separadas de forma que cada
 camada tenha suas responsabilidades específicas onde cada camada também tem menos
 dependências de suas camadas externas
+
 # 6- Vantagens
 ● As camadas da Onion Architecture são conectadas através de interfaces. As
 implementações são fornecidas durante o tempo de execução;
@@ -77,6 +82,7 @@ representada em camadas externas;
 ● Arquitetura flexível, sustentável e portátil;
 ● Não há necessidade de criar projetos comuns e compartilhados;
 ● Pode ser testada rapidamente porque o núcleo do aplicativo não depende de nada;
+
 # 7- Desvantagens
 ● Não é fácil de entender para iniciantes, e tem uma curva de aprendizado. Os arquitetos
 geralmente confundem a divisão de responsabilidades entre as camadas;
