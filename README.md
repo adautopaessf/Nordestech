@@ -1,7 +1,7 @@
 # Projeto-NORDESTECH
 
 # Grupo-8
-- Adauto Paes
+- Adauto de Souza Paes Ferreira
 - Eduardo Young Woo Kim
 - Juliano Freitas de Albuquerque Bezerra
 - Letícia Bortnik Machado Dias Vasconcelos
