@@ -21,7 +21,11 @@ Ao usuário acessar a aba da newsletter, ele terá uma visualização homogênea
 
 ![Newsletter](/imgs/Screenshot_6.png)
 
-Funcionalidade 2: Sistema de Notificações
+Funcionalidade 2: Estante de Livros
+
+Nessa aba mostrará de forma geral os livros categorizados por gêneros, onde o usuário poderá navegar de forma totalmente intuitiva e facilitando o seu manuseio através dos filtros pré-estabelecidos.
+
+![Estante de Livros](/imgs/estante.png)
 
 Funcionalidade 3: Login/Cadastro
 
