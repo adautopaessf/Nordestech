@@ -9,20 +9,22 @@
 - Walter Teles Moreira Neto
 
 # API
-  Link da API
+https://developers.google.com/books/docs/overview?hl=pt-br
 
 # figma
 https://www.figma.com/file/ksWNyVOgwVDh1AvLXLoisB/Meta-Books---Biblioteca-Virtual?type=design&node-id=0-1&mode=design&t=K5ueKsC6fk4avpj9-0
 
 #  Funcionalidades
-Funcionalidade 1: 
+Funcionalidade 1: Newsletter
 
-Funcionalidade 2:
+Funcionalidade 2: Sistema de Notificações
 
-Funcionalidade 3:
+Funcionalidade 3: Login/Cadastro
 
-Funcionalidade 4:
+Funcionalidade 4: Integração de Redes Sociais
 
-Funcionalidade 5: 
+Funcionalidade 5: Livros Em Alta
+
+Funcionalidade 6: Estatísticas de Leitura
 
 ---------------------------
