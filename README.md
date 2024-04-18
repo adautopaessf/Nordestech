@@ -41,6 +41,8 @@ Com o intuito de facilitar a vida do usuário da aplicação, integraremos rede 
 
 Funcionalidade 5: Livros Em Alta
 
+Na aba Em Alta, o usuário visualizará em primeira mão os livros mais acessados naquele período, permitindo também se inteirar e despertar a curiosidade sobre os livros que estão sendo mais acessados naquele período. Em seguida, terá o Destaque do Mês em evidência, mostrando ao usuário os livros com mais relevância e por último os Últimos Lançamentos, mostrando os últimos livros lançados naquele mês.
+
 ![Em Alta](/imgs/emalta.png)
 
 Funcionalidade 6: Estatísticas de Leitura
