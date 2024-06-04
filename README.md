@@ -1,15 +1,18 @@
-# Projeto-[NOME_DO_PROJETO]
+# Projeto - NORDESTECH
 
-# Grupo-[NOME_DO_GRUPO]
-- fulano [NOME_COMPLETO]
-- beltrano [NOME_COMPLETO]
-- ciclano [NOME_COMPLETO]
+# Grupo - METABOOKS
+- Adauto de Souza Paes Ferreira
+- Eduardo Young Woo Kim
+- Juliano Freitas de Albuquerque Bezerra
+- Leticia Bortnik Machado Dias Vasconcelos
+- Rene Cesar de Barros Junior
+- Walter Teles Moreira Neto
 
 # API
-  Link da API
+https://developers.google.com/books/docs/overview?hl=pt-br
 
 # figma
-  Link do Figma
+https://www.figma.com/file/ksWNyVOgwVDh1AvLXLoisB/Meta-Books---Biblioteca-Virtual?type=design&node-id=0-1&mode=design&t=K5ueKsC6fk4avpj9-0
 
 #  Funcionalidades
 Funcionalidade 1: Listar filmes IMDB
