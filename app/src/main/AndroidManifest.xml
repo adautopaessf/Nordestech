@@ -10,13 +10,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Hello_world"
+        android:theme="@style/Theme.LoginScreen"
         tools:targetApi="31">
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
         <activity
             android:name=".HomeActivity"
             android:exported="false"
-            android:label="Home"
-            />
+            android:label="Home" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
