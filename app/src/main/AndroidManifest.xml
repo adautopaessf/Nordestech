@@ -13,6 +13,15 @@
         android:theme="@style/Theme.LoginScreen"
         tools:targetApi="31">
         <activity
+            android:name=".activity_verification"
+            android:exported="false" />
+        <activity
+            android:name=".activity_password_recover"
+            android:exported="false" />
+        <activity
+            android:name=".activity_cadastro"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
