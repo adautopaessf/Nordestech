@@ -1,0 +1,445 @@
+Step 1: Set Up Firebase Authentication
+
+The first step is to set up Firebase Authentication in your Android Studio project. Create a new Firebase project and add Firebase Authentication to it. Once you have done that, download and add the Firebase SDK to your project.
+
+
+
+
+
+Step 2: Configure Google Sign-In in Firebase Console
+
+The next step is to configure Google Sign-In in the Firebase Console. Go to the Firebase Console, select your project, and navigate to the "Authentication" section. Under the "Sign-in method" tab, enable the Google sign-in provider and add your app's SHA-1 key. Add the google-services.json file to your project by downloading it from the Firebase Console and placing it in the app directory of your project.
+
+
+
+
+
+Step 3: Add the following dependency to the build.gradle file.
+
+build.gradle  
+
+Copy
+   
+
+implementation platform('com.google.firebase:firebase-bom:31.5.0')
+implementation 'com.google.firebase:firebase-auth-ktx'
+implementation 'com.google.android.gms:play-services-auth:20.5.0'
+
+      
+
+
+
+
+
+ Add google.png in the drawable folder
+
+
+
+also, Add the following color codes to the colors.xml file. also, colors.xml
+
+Copy
+   
+
+<color name="blue">#459DE4</color>
+<color name="red">#FF0000</color>
+
+      
+
+
+
+
+
+Step 4:  Create a new drawable resource file, name it a border.xml, and add the following code to it.
+
+border.xml  
+
+Copy
+   
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid android:color="@android:color/transparent" />
+
+    <stroke
+        android:width="2dp"
+        android:color="@color/blue" />
+
+    <padding
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp" />
+
+</shape>
+
+      
+
+
+
+
+
+
+
+Step 5: Add the following code in the activity_main.xml file.
+
+activity_main.xml 
+
+Copy
+   
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Loading.."
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.212" />
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:text="logout"
+        android:background="@color/red"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+      
+
+
+
+
+
+
+
+Step 6: Create new empty activity, name it SignInActivity.kt, and Add the following code to it.
+
+
+activity_sign_in.xml 
+
+Copy
+   
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".SignInActivity">
+
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/border"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="11dp"
+            android:background="@color/white"
+            android:src="@drawable/ic_google" />
+
+        <Button
+            android:id="@+id/signInButton"
+            android:textAllCaps="false"
+        android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@color/blue"
+            android:text="Sign up with Google"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
+
+      
+
+
+
+
+
+
+
+Step 7: Add the following code in the MainActivity.kt file.
+
+
+
+MainActivity.kt 
+
+Copy
+   
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var mGoogleSignInClient: GoogleSignInClient
+    private lateinit var mAuth: FirebaseAuth
+
+
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        mAuth = FirebaseAuth.getInstance()
+
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+
+
+
+        val textView = findViewById<TextView>(R.id.name)
+
+        val auth = Firebase.auth
+        val user = auth.currentUser
+
+        if (user != null) {
+            val userName = user.displayName
+            textView.text = "Welcome, " + userName
+        } else {
+            // Handle the case where the user is not signed in
+        }
+
+
+
+// Inside onCreate() method
+        val sign_out_button = findViewById<Button>(R.id.logout_button)
+        sign_out_button.setOnClickListener {
+            signOutAndStartSignInActivity()
+        }
+
+
+
+
+    }
+
+
+    private fun signOutAndStartSignInActivity() {
+        mAuth.signOut()
+
+        mGoogleSignInClient.signOut().addOnCompleteListener(this) {
+            // Optional: Update UI or show a message to the user
+            val intent = Intent(this@MainActivity, SignInActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
+}
+
+      
+
+
+
+
+
+
+
+Step 8: Add the following code in the SignInActivity.kt file.
+
+
+SignInActivity.kt 
+
+Copy
+   
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.Toast
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+
+class SignInActivity : AppCompatActivity() {
+
+
+    companion object {
+        private const val RC_SIGN_IN = 9001
+    }
+
+    private lateinit var auth: FirebaseAuth
+
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_sign_in)
+
+        auth = FirebaseAuth.getInstance()
+
+
+
+        val currentUser = auth.currentUser
+
+        if (currentUser != null) {
+            // The user is already signed in, navigate to MainActivity
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish() // finish the current activity to prevent the user from coming back to the SignInActivity using the back button
+        }
+
+
+
+
+        val signInButton = findViewById<Button>(R.id.signInButton)
+        signInButton.setOnClickListener {
+            signIn()
+        }
+    }
+
+    private fun signIn() {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        val googleSignInClient = GoogleSignIn.getClient(this, gso)
+        val signInIntent = googleSignInClient.signInIntent
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                val account = task.getResult(ApiException::class.java)
+                firebaseAuthWithGoogle(account.idToken!!)
+            } catch (e: ApiException) {
+                Toast.makeText(this, "Google sign in failed: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun firebaseAuthWithGoogle(idToken: String) {
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val user = auth.currentUser
+                    Toast.makeText(this, "Signed in as ${user?.displayName}", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                } else {
+                    Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+}
+
+      
+
+
+
+
+
+Step 9: Add the following theme to the themes.xml file.
+
+
+themes.xml 
+
+Copy
+   Theme.AppCompat.DayNight.NoActionBar      
+
+Step 10: In the Manifest file, replace MainActivity with SigninActivity and replace SigninActivity with MainAcivity. see the following example code.
+
+
+
+manifest 
+
+Copy
+   
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication648"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignInActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+
+      
+
+And done. Now you can run and check your app. Feel free to contact me if you get any errors.
+
+
+Conclusion:
+That's it! With these simple steps, you can implement Google Sign-In with Firebase in your Android Studio project using Kotlin. By providing a quick and secure way for users to sign in to your app, you can enhance the user experience and increase engagement. Remember to add the google-services.json file to your project to ensure proper configuration with Firebase.
