@@ -31,7 +31,8 @@ Funcionalidade 3: Login/Cadastro
 
 Nessa tela inicial, o usuário terá seu ponto de partida para obter acesso aos livros didáticos. Se o usuário já possuir uma conta, basta colocar seu e-mail e senha e acessar. Caso seja seu primeiro acesso, o cadastro vai ser fácil e de maneira intuitiva, basta somente preencher alguns campos solicitados e em seguida terá acesso a toda aplicação.
 
-![Cadastro e Login](/imgs/Cadastroelogin.png)
+![Login](/imgs/1.LOGIN.png)
+![Cadastro](/imgs/2.CADASTRO.png)
 
 Funcionalidade 4: Integração de Redes Sociais
 
