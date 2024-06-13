@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         if (user != null) {
             val userName = user.displayName
-            textView.text = "Welcome, $userName"
+            textView.text = "Welcome, " + userName
         } else {
             signIn()
         }
